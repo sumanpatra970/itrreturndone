@@ -38,6 +38,9 @@
                 color:red;
                 font-size:22px;
             }
+            .kk{
+                font-size:22px;
+            }
         }
     </style>
 <body><br>
@@ -48,7 +51,7 @@
             <div class="col-sm-4 ll">
                 <img src="{% static 'godaddy.png'%}" alt="Avatar" width="200px" height="100px"><br>
                 <h2 class="lk">Sign in</h2>
-                <p class="lk kl">Already a user <a href="/"><span class="kl">sign in here</span></a></p>
+                <p class="lk kk">Already a user? <a href="/"><span class="kl">sign in here</span></a></p>
                 <form class="form-group lk" action="signup" method="POST">
                     {% csrf_token %}
                     {%for i in fm%}
