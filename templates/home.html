@@ -37,6 +37,9 @@
                 padding:5px 5px 5px 10px;
                 margin:10px 10px 10px 10px;
             }
+            .kl{
+                text:black;
+            }
         }
     </style>
 <body><br>
@@ -47,7 +50,7 @@
             <div class="col-sm-4 ll"><br>
                 <img src="{% static 'godaddy.png'%}" alt="Avatar" width="200px" height="100px"><br>
                 <h2 class="lk">Sign in</h2>
-                <p class="lk">New to itrreturn?<a href="signup">creat an account</a></p>
+                <p class="lk">New to itrreturn?<a href="signup" class="kl">creat an account</a></p>
                 <form class="form-group lk" action="/" method="POST">
                     {% csrf_token %}
                     {%for i in fm%}
