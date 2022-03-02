@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="suman">
+    <meta name="keywords" content="mentors session courses guidance platform besthelping platform teacher professional live project" >
+    <meta name="description" content="Consult  Counsel is an online consulting service where people seeking guidance in any field is counselled by a Mentor who is expertised in the same area">
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <style>
+        body{
+            background-image:url('http://127.0.0.1:8000/static/back.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        .ll{
+            background:white;
+            height:540px;
+            width:400px;
+            margin-left:100px;
+        }
+        .lk{
+            padding:5px 5px 5px 10px;
+            margin:10px 10px 10px 10px;
+        }
+    </style>
+<body><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-4 ll">
+                <img src="{% static 'godaddy.png'%}" alt="Avatar" width="200px" height="100px"><br>
+                <h2 class="lk">Sign in</h2>
+                <p class="lk">Already a user <a href="/">sign in here</a></p>
+                <form class="form-group lk" action="signup" method="POST">
+                    {% csrf_token %}
+                    {%for i in fm%}
+                    <h5 class="kk">{{ i.label }}</h5>
+                    <h5 class="kk">{{ i }}{{i.errors|striptags}}</h5>
+                    {%endfor%}
+                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+        
