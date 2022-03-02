@@ -23,6 +23,9 @@
             padding:5px 5px 5px 10px;
             margin:10px 10px 10px 20px;
         }
+        .pk{
+            margin-left:20px;
+        }
         @media only screen and (max-width: 600px) {
             .ll{
                 background:none;
@@ -49,7 +52,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-5"></div>
             <div class="col-sm-4 ll"><br>
-                <img src="{% static 'logo.png'%}" alt="Avatar" width="200px" height="100px"><br>
+                <img class="pk" src="{% static 'logo.png'%}" alt="Avatar" width="200px" height="100px"><br>
                 <h2 class="lk">Sign in</h2>
                 <p class="lk kk">New to itrreturn? <a href="signup"><span class="kl">creat an account</span></a></p>
                 <form class="form-group lk" action="/" method="POST">
