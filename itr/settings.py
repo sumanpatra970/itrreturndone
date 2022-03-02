@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['easy90.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
