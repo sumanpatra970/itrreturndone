@@ -113,3 +113,6 @@ def invoice(request):
         return FileResponse(open('ca.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         return HttpResponse('file not found')
+
+def testing(request):
+    return render(request,'index.html')

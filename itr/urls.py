@@ -29,7 +29,8 @@ urlpatterns = [
     path('itrsubmit',views.itrsubmit),
     path('paymentstart',views.payment),
     path('payment_status',views.payment_status),
-    path('invoice',views.invoice)
+    path('invoice',views.invoice),
+    path('testing',views.testing)
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

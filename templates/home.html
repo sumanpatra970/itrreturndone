@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% extends 'base.html'%}
 {% load static%}
 <html lang="en">
 <head>
@@ -7,77 +6,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="suman">
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://www.pubik.in/static/basicLightbox.min.css">
     <style>
+        .navspace{
+            margin:10px 20px 20px 20px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .navspace-form{
+            padding-right:30px;
+        }
+        .navextra-space{
+            margin-top:10px;
+            margin-left:-15px;
+        }  
+        .koi {
+            margin-left:600px;
+        }
         img{
-            border-radius:5px;
+          border-radius:5px;
         }
         body{
-            background-color:#AAA5E3 ;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
-
         }
+        .pox{
+            text-align:center;
+        }
+        .pol{
+            width:100px;
+        }   
         .ll{
-            background:white;
+            background:none;
             height:550px;
             width:400px;
             margin-left:100px;
         }
         .lk{
-            padding:5px 5px 5px 10px;
-            margin:10px 10px 10px 20px;
+            margin:10px 10px 10px 10px;
         }
         .pk{
-            margin-left:20px;
+             margin-left:20px;
         }
         .set{
             width:100px;
         }
-        @media only screen and (max-width: 600px) {
-            .ll{
-                background:none;
-                height:550px;
-                width:400px;
-                margin-left:0px;
-            }
+        .cart-img{
+            width:80px;
+            height:60px;
+        }
+        .account-img{
+            width:60x;
+            height:40px;
+        }
+        .skp{
+            margin-bottom:10px;
+        }
+        .kk{
+            font-size:18px;
+            font-weight:bold;
+          }
+      @media only screen and (max-width: 600px) {
             .lk{
-                padding:5px 5px 5px 10px;
-                margin:10px 10px 10px 10px;
-            }
-            .kl{
-                color:#00008B;
-                font-size:22px;
+              margin:10px 10px 10px 10px;
             }
             .kk{
-                font-size:22px;
+              font-size:18px;
             }
         }
     </style>
     <title>File Returns</title>
     <link rel="icon" href="{% static 'logo.png' %}">
 <body>
-    {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand space" href="/"><img src="{% static 'logo.png'%}" alt="Girl in a jacket" width="100px" height="60px"> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+        </ul>
+        </div>
+    </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5"></div>
-            <div class="col-sm-4 ll"><br>
-                <img class="pk" src="{% static 'logo.png'%}" alt="Avatar" width="200px" height="100px"><br>
-                <h2 class="lk">Sign in</h2>
-                <p class="lk kk">New to FileReturns ?<a href="signup"><span class="kl">Creat an account</span></a></p>
+            <div class="col-sm-4 lk"><br>
+                <h2 class="lk kk">Sign in</h2>
+                <p class="lk kk">New to FileReturns ?<a href="signup"><span class="kk">Creat an account</span></a></p>
                 <form class="form-group lk" action="/" method="POST">
                     {% csrf_token %}
                     {%for i in fm%}
-                    <h5 class="kk">{{ i.label }}</h5>
-                    <h5 class="kk">{{ i }}{{i.errors|striptags}}</h5>
+                    <h5 class="skp">{{ i.label }}</h5>
+                    <h5 class="skp">{{ i }}{{i.errors|striptags}}</h5>
                     {%endfor%}
                     <button type="submit" class="btn btn-success">SUBMIT</button>
                 </form>
             </div>
         </div>
     </div>
-    {% endblock content %}
+    <div class="columns">
+        <div class="column">
+            <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a href="./services/itr-filings.html">
+                    <div class="has-text-centered">
+                        <img src="./static/img1.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">Income Tax</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+        <div class="column">
+            <div
+                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a href="./services/gst.html">
+                    <div class="has-text-centered">
+                        <img src="./static/img2.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">GST</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+        <div class="column">
+            <div
+                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a onclick="tds.show()">
+                    <div class="has-text-centered">
+                        <img src="./static/img3.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">TDS</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <div
+                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a onclick="accounting.show()">
+                    <div class="has-text-centered">
+                        <img src="./static/img4.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">Accounting</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+        <div class="column">
+            <div
+                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a href="./services/company-incorporation.html">
+                    <div class="has-text-centered">
+                        <img src="./static/img5.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">StartUp Services</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+        <div class="column">
+            <div
+                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                <a href="./services/wills.html">
+                    <div class="has-text-centered">
+                        <img src="./static/img6.svg" alt="" style="max-width: 250px;">
+                    </div>
+                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                        <strong style="color: #fcfcfc;">Wills</strong>
+                    </h2>
+                </a>
+            </div>
+        </div>
+</div>
+<footer class="page-footer font-small indigo">
+    <div class="container text-center text-md-left">
+      <div class="row">
+        <div class="col-md-6 mx-auto"><br>
+          <h4>File returns intuitive e filling application ensures filling Accurate tax returns. TaxBuddy leverages technology to bring expert advice to taxpayers at reasonable cost.</h3>
+          
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+  
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Article</a>
+            </li>
+            <li>
+              <a href="#!">twitter</a>
+            </li>
+            <li>
+              <a href="#!">facebook</a>
+            </li>
+            <li>
+              <a href="#!">linkedin</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+  
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Terms & Condition</a>
+            </li>
+            <li>
+              <a href="#!">Privacy</a>
+            </li>
+            <li>
+              <a href="#!">contact</a>
+            </li>
+            <li>
+              <a href="#!">FAQ's</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:Filereturns.com
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
 </body>
 </html>
         

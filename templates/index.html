@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% extends 'base.html'%}
 {% load static%}
 <html lang="en">
 <head>
@@ -7,28 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="suman">
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
-    <title>File Returns</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+    </style>
     <link rel="icon" href="{% static 'logo.png' %}">
+    <link rel="stylesheet" href="https://www.pubik.in/static/basicLightbox.min.css">
 <body>
-    {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-5"></div>
-            <div class="col-sm-4 lk">
-                <h2 class="lk kk">Registration</h2>
-                <p class="lk kk">Already a user? <a href="/"><span class="lk">Sign in here</span></a></p>
-                <form class="form-group lk" action="signup" method="POST">
-                    {% csrf_token %}
-                    {%for i in fm%}
-                    <h5 class="skp">{{ i.label }}</h5>
-                    <h5 class="skp">{{ i }}{{i.error_messages}}</h5>
-                    {%endfor%}
-                    <button type="submit" class="btn btn-success lk">SUBMIT</button>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="columns">
         <div class="column">
             <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
@@ -72,6 +55,7 @@
             </div>
         </div>
     </div>
+
     <div class="columns">
         <div class="column">
             <div
@@ -115,8 +99,7 @@
                 </a>
             </div>
         </div>
-</div>
-    {% endblock content %}
+    </div>
 </body>
 </html>
         

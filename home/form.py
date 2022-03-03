@@ -39,8 +39,14 @@ class user_change_form(UserChangeForm):
                 'email':forms.EmailInput(attrs={'class':'form-control'}),
                 }
 
-
+FRUIT_CHOICES= [
+    ('orange', 'Oranges'),
+    ('cantaloupe', 'Cantaloupes'),
+    ('mango', 'Mangoes'),
+    ('honeydew', 'Honeydews'),
+    ]
 class itrform(forms.ModelForm):
+    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.Select(choices=FRUIT_CHOICES))
     class Meta:
         model=itrrequest
         fields=['FatherName','DateOfBirth','state','city','pan','aadhar','bankname','bankaccount','ifsccode','form16']
