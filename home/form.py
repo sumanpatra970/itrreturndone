@@ -53,6 +53,7 @@ class itrform(forms.ModelForm):
                 'bankname':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Name"}),
                 'bankaccount':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Account no"}),
                 'ifsccode':forms.TextInput(attrs={'class':'form-control','placeholder':"IFSC"}),
+                'form16':forms.TextInput(attrs={'class':'form-control'}),
                 }
     def __init__(self, *args, **kwargs):
         super(itrform, self).__init__(*args, **kwargs)
@@ -65,3 +66,4 @@ class itrform(forms.ModelForm):
         self.fields['bankname'].label = ""
         self.fields['bankaccount'].label = ""
         self.fields['ifsccode'].label = ""
+        self.fields['form16'].label = ""
