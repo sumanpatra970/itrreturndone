@@ -35,29 +35,6 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-    <form action="payment_status" method="POST">
-        {% csrf_token %}
-        <script src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key="rzp_test_mEqDIf8ehJFOX5"
-                data-amount="{{ price }}"
-                data-currency="INR"
-                data-order_id="{{ order_id }}"
-                data-buttontext="Pay with Razorpay"
-                data-name="File Returns"
-                data-description="Transaction"
-                data-image="https://easy90.herokuapp.com/static/logo.png"
-                data-prefill.name="{{ name }}"
-                data-prefill.email="{{ email }}"
-                data-prefill.contact="{{ phone }}"
-                data-theme.color="#def052">
-        </script>
-        <input type="hidden" custom="Hidden Element" name="hidden">
-    </form>
-</div>
-</div>
     {% endblock content %}
 </body>
 </html>
