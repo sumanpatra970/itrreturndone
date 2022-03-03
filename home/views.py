@@ -97,7 +97,18 @@ def payment_status(request):
         return render(request, 'order_summary.html', {'status': 'Payment Successful','x':x,'y':y})
     except:
         return render(request, 'order_summary.html', {'status': 'Payment Faliure!!!'})
+
+from fpdf import FPDF
 def invoice(request):
+    pdf = FPDF()   
+    pdf.add_page()
+    pdf.set_font("Arial", size = 15)
+
+    f = open("bill.txt", "r")
+    for x in f:
+        pdf.cell(200, 10, txt = x, ln = 1, align = 'C')
+    
+    pdf.output("billing.pdf")   
     try:
         return FileResponse(open('ca.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
