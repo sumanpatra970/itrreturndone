@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
     <style>
         body{
-            background-image:#AAA5E3 ;
+            background-color:#AAA5E3 ;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -59,7 +59,7 @@
                     {% csrf_token %}
                     {%for i in fm%}
                     <h5 class="kk">{{ i.label }}</h5>
-                    <h5 class="kk">{{ i }}{{i.errors|striptags}}</h5>
+                    <h5 class="kk">{{ i }}{{i.error_messages}}</h5>
                     {%endfor%}
                     <button type="submit" class="btn btn-success">SUBMIT</button>
                 </form>
