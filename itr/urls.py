@@ -23,5 +23,10 @@ urlpatterns = [
     path('',views.home),
     path('signup',views.signup),
     path('account',views.account),
+    path('home',views.itrhome),
+    path('itrdetails',views.itrdetails),
+    path('itrsubmit',views.itrsubmit),
+    path('paymentstart',views.payment),
+    path('payment_status',views.payment_status)
 ]
 urlpatterns += staticfiles_urlpatterns()

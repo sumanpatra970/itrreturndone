@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-k9g-79r!pn=vu-3l^8#u^=#icq4b65)vtl1=(fztze#8&w000e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['easy90.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','easy90.herokuapp.com']
 
 
 # Application definition
@@ -45,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -127,3 +127,5 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'staticfiles')]
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/']
