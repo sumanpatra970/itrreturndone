@@ -145,28 +145,6 @@
     <div class="main-block box">
         <form action="payment_status" method="POST">
             {% csrf_token %}
-            <h1>Creating order</h1>
-            <fieldset>
-            <legend>
-                <h3>Fee</h3>
-            </legend>
-            <div class="gender">
-                <div>
-                    <span style='font-size:25px;'>&#8618;</span>Price {{ price }}
-                </div>
-            </div>
-            </fieldset>
-            <fieldset>
-            <legend>
-                <h3>Personal Details</h3>
-            </legend>
-            <div  class="personal-details">
-                <div>
-                    <div><label>Name:</label><input type="text" name="name" placeholder="{{ name }}" disabled></div>
-                    <div><label>Email:</label><input type="text" name="name" placeholder="{{ email }}" disabled></div>
-                </div>
-            </div>
-            </fieldset>
             <script src="https://checkout.razorpay.com/v1/checkout.js"
                     data-key="rzp_test_mEqDIf8ehJFOX5"
                     data-amount="{{ price }}"
