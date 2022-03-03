@@ -49,7 +49,7 @@ def itrhome(request):
     return render(request,'itrhome.html')
 
 def itrdetails(request):
-    if request.method=='POST':
+    if request.method=="POST":
         fm=itrform(request.POST or None, request.FILES or None)
         if fm.is_valid():
             fm.save()
