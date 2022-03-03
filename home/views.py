@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect,HttpResponse
 from .form import account_creation_form
 from .form import login_form,password_form,user_change_form,itrform
-
+from django.http import FileResponse
 # Create your views here.
 def home(request):
     if request.method=='POST':
@@ -97,3 +97,8 @@ def payment_status(request):
         return render(request, 'order_summary.html', {'status': 'Payment Successful','x':x,'y':y})
     except:
         return render(request, 'order_summary.html', {'status': 'Payment Faliure!!!'})
+def invoice(request):
+    try:
+        return FileResponse(open('ca.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        return HttpResponse('file not found')

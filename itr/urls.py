@@ -27,6 +27,7 @@ urlpatterns = [
     path('itrdetails',views.itrdetails),
     path('itrsubmit',views.itrsubmit),
     path('paymentstart',views.payment),
-    path('payment_status',views.payment_status)
+    path('payment_status',views.payment_status),
+    path('invoice',views.invoice)
 ]
 urlpatterns += staticfiles_urlpatterns()
