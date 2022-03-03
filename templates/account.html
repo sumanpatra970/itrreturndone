@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends 'base.html'%}
 {%load static%}
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <title>Successful</title>
 </head>
 <body>
-    <br><br>
+    {% block content %}
     <div class="container-fluid lll">
     <div class="row">
         <div class="col-sm-3"></div>
@@ -25,4 +26,5 @@
         </div><br><br>
     </div>
 </div>
+{% endblock content %}
 </html>

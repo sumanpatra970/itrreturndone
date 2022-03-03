@@ -2,3 +2,14 @@ total amount:200
 GST:24
 Final price:224
 offer:50% offerdiscounted price:180
+    context={}
+    notes = {'Shipping address': 'Bommanahalli, Bangalore'}
+    client = razorpay.Client(auth=("rzp_test_mEqDIf8ehJFOX5", "0EL1uE9m44CYcSQJEwUvmEfA"))
+    response = client.order.create(dict(amount=100, currency='INR', receipt='order_rcptid_11', notes=notes, payment_capture='0'))
+    order_id = response['id']
+    order_status = response['status']
+    if order_status=='created':
+        context['product_id'] = "product"
+        context['price'] = 1000
+        context['name'] = request.user
+        context['order_id'] = order_id

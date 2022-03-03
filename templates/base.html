@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="suman">
+    <meta name="keywords" content="consult counsel guidance teaching advice Artist dancer musician teacher professional doctor writter sketch artist healthworker counselling best in india consulting session video lecture video session">
+    <meta name="description" content="consult and counsel bring you the best consulting and counselling services in the field of Dance,Music,Art,Paint,Sketch,Education,Teaching,Health,Corporate,Writtings and many more">
+    <meta name="description" content="We bring you the best consulting and counselling services irrespective of field with the help of renowned professionals in that particular concerned area">
+    <style>
+        .navspace{
+            margin:10px 20px 20px 20px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .navspace-form{
+            padding-right:30px;
+        }
+        .navextra-space{
+            margin-top:10px;
+            margin-left:-15px;
+        }  
+        .cart-img{
+            width:80px;
+            height:60px;
+        }
+        .account-img{
+            width:60x;
+            height:40px;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'basic.css' %}">
+
+    <link rel="icon" href="{% static 'COUNC.jpeg' %}">
+    <title>Consult&Counsel</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand space" href="/"><img src="{% static 'logo.png'%}" alt="Girl in a jacket" width="60" height="40"> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active navspace"><a class="nav-link" href="men">Dashboard</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item active navspace">
+                    <a class="nav-link navextra-space" href="#"><img src="{% static 'profileicon.png'%}" alt="Account" class="account-img"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% block content%}
+    {% endblock content%}
+    <!-- Footer -->
+<footer class="page-footer font-small indigo">
+    <div class="container text-center text-md-left">
+      <div class="row">
+        <div class="col-md-3 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Very long link 1</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 2</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 3</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 4</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+  
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+  
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+  
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+</body>
+</html>

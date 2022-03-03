@@ -50,11 +50,11 @@ def itrhome(request):
 
 def itrdetails(request):
     if request.method=='POST':
-        fm=itrform(data=request.POST)
+        fm=itrform(request.POST or None, request.FILES or None)
         if fm.is_valid():
             fm.save()
             print("good")
-            return HttpResponseRedirect('itrsubmit')
+            return HttpResponseRedirect('paymentstart')
         else:
            return HttpResponse("something went") 
     else:

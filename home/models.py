@@ -11,4 +11,4 @@ class itrrequest(models.Model):
     bankname = models.CharField(max_length=100,default="",blank=False)
     bankaccount = models.CharField(max_length=1000,default="",blank=False)
     ifsccode = models.CharField(max_length=100,default="",blank=False)
-
+    form16 = models.FileField(upload_to='media/',default="NA",blank=True)

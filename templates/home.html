@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends 'base.html'%}
 {% load static%}
 <html lang="en">
 <head>
@@ -55,7 +56,8 @@
     </style>
     <title>File Returns</title>
     <link rel="icon" href="{% static 'logo.png' %}">
-<body><br>
+<body>
+    {% block content %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-1"></div>
@@ -76,6 +78,7 @@
             </div>
         </div>
     </div>
+    {% endblock content %}
 </body>
 </html>
         

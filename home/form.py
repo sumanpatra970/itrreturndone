@@ -43,7 +43,7 @@ class user_change_form(UserChangeForm):
 class itrform(forms.ModelForm):
     class Meta:
         model=itrrequest
-        fields=['FatherName','DateOfBirth','state','city','pan','aadhar','bankname','bankaccount','ifsccode']
+        fields=['FatherName','DateOfBirth','state','city','pan','aadhar','bankname','bankaccount','ifsccode','form16']
         widgets={'FatherName':forms.TextInput(attrs={'class':'form-control','placeholder':"Father's name"}),
                 'DateOfBirth':forms.DateInput(attrs={'class':'form-control','placeholder':"Date Of Birth"}),
                 'state':forms.TextInput(attrs={'class':'form-control','placeholder':"Enter state"}),
@@ -52,7 +52,7 @@ class itrform(forms.ModelForm):
                 'aadhar':forms.TextInput(attrs={'class':'form-control','placeholder':"Aadhar no"}),
                 'bankname':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Name"}),
                 'bankaccount':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Account no"}),
-                'ifsccode':forms.TextInput(attrs={'class':'form-control','placeholder':"IFSC"})
+                'ifsccode':forms.TextInput(attrs={'class':'form-control','placeholder':"IFSC"}),
                 }
     def __init__(self, *args, **kwargs):
         super(itrform, self).__init__(*args, **kwargs)
