@@ -80,7 +80,7 @@
     <title>File Returns</title>
     <link rel="icon" href="{% static 'logo.png' %}">
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand space" href="/"><img src="{% static 'logo.png'%}" alt="Girl in a jacket" width="100px" height="60px"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -104,7 +104,7 @@
                     <h5 class="skp">{{ i.label }}</h5>
                     <h5 class="skp">{{ i }}{{i.errors|striptags}}</h5>
                     {%endfor%}
-                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                    <button type="submit" class="btn btn-outline-success">submit</button>
                 </form>
             </div>
         </div>
