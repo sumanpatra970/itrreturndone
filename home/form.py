@@ -46,20 +46,19 @@ FRUIT_CHOICES= [
     ('honeydew', 'Honeydews'),
     ]
 class itrform(forms.ModelForm):
-    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.Select(choices=FRUIT_CHOICES))
     class Meta:
         model=itrrequest
         fields=['FatherName','DateOfBirth','state','city','pan','aadhar','bankname','bankaccount','ifsccode','form16']
-        widgets={'FatherName':forms.TextInput(attrs={'class':'form-control','placeholder':"Father's name"}),
-                'DateOfBirth':forms.DateInput(attrs={'class':'form-control','placeholder':"Date Of Birth",'type':'date'}),
-                'state':forms.TextInput(attrs={'class':'form-control','placeholder':"Enter state"}),
-                'city':forms.TextInput(attrs={'class':'form-control','placeholder':"Enter City"}),
-                'pan':forms.TextInput(attrs={'class':'form-control','placeholder':"PAN"}),
-                'aadhar':forms.TextInput(attrs={'class':'form-control','placeholder':"Aadhar no"}),
-                'bankname':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Name"}),
-                'bankaccount':forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Account no"}),
-                'ifsccode':forms.TextInput(attrs={'class':'form-control','placeholder':"IFSC"}),
-                'form16':forms.FileInput(attrs={'class':'form-control'}),
+        widgets={'FatherName':forms.TextInput(attrs={'class':'form-control op','placeholder':"Father's name"}),
+                'DateOfBirth':forms.DateInput(attrs={'class':'form-control op','placeholder':"Date Of Birth",'type':'date'}),
+                'state':forms.TextInput(attrs={'class':'form-control op','placeholder':"Enter state"}),
+                'city':forms.TextInput(attrs={'class':'form-control op','placeholder':"Enter City"}),
+                'pan':forms.TextInput(attrs={'class':'form-control op','placeholder':"PAN"}),
+                'aadhar':forms.TextInput(attrs={'class':'form-control op','placeholder':"Aadhar no"}),
+                'bankname':forms.TextInput(attrs={'class':'form-control op','placeholder':"Bank Name"}),
+                'bankaccount':forms.TextInput(attrs={'class':'form-control op','placeholder':"Bank Account no"}),
+                'ifsccode':forms.TextInput(attrs={'class':'form-control op','placeholder':"IFSC"}),
+                'form16':forms.FileInput(attrs={'class':'form-control op','placeholder':"form 16"}),
                 }
     def __init__(self, *args, **kwargs):
         super(itrform, self).__init__(*args, **kwargs)
@@ -72,4 +71,4 @@ class itrform(forms.ModelForm):
         self.fields['bankname'].label = ""
         self.fields['bankaccount'].label = ""
         self.fields['ifsccode'].label = ""
-        self.fields['form16'].label = ""
+        self.fields['form16'].label = "upload form-16"
