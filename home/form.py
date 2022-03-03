@@ -45,7 +45,7 @@ class itrform(forms.ModelForm):
         model=itrrequest
         fields=['FatherName','DateOfBirth','state','city','pan','aadhar','bankname','bankaccount','ifsccode','form16']
         widgets={'FatherName':forms.TextInput(attrs={'class':'form-control','placeholder':"Father's name"}),
-                'DateOfBirth':forms.DateInput(attrs={'class':'form-control','placeholder':"Date Of Birth"}),
+                'DateOfBirth':forms.DateInput(attrs={'class':'form-control','placeholder':"Date Of Birth",'type':'date'}),
                 'state':forms.TextInput(attrs={'class':'form-control','placeholder':"Enter state"}),
                 'city':forms.TextInput(attrs={'class':'form-control','placeholder':"Enter City"}),
                 'pan':forms.TextInput(attrs={'class':'form-control','placeholder':"PAN"}),
