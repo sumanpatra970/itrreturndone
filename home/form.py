@@ -89,15 +89,24 @@ validators=[MaxLengthValidator(5)]
 
 
 def checkaadhar(value):
-    if value[0]!='0':
-        raise forms.ValidationError("enter correct aadhar")
+    if len(value)!=12:
+        raise forms.ValidationError("enter correct aadhar no")
 
+from datetime import date
+def checkdob(value):
+    today = date.today()
+    print("Today's date:", today,value)
+    if value>today:
+        raise forms.ValidationError("you can not enter future date")
 
-
+def checkform16(value):
+    print(value)
+    print(type(value))
+from django.core.validators import FileExtensionValidator
 class itroform(forms.Form):
     fathername=forms.CharField(error_messages = {'required':"Please enter father name"},validators=[MaxLengthValidator(50)], 
     widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Father's Name"}))
-    dob=forms.DateField(error_messages = {'required':"Please enter dob"}, 
+    dob=forms.DateField(error_messages = {'required':"Please enter dob"},validators=[checkdob], 
     widget=forms.DateTimeInput(attrs={'class':'form-control','placeholder':"Date Of Birth",'type':'date'}))
     state=forms.CharField(error_messages = {'required':"Please enter state"},validators=[MaxLengthValidator(50)], 
     widget=forms.TextInput(attrs={'class':'form-control','placeholder':"State name"}))
@@ -113,7 +122,7 @@ class itroform(forms.Form):
     widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Account No"}))
     aadhar=forms.CharField(error_messages = {'required':"Please enter aadhar no"},validators=[checkaadhar] ,
     widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Aadhar no"}))
-    form16=forms.FileField(label='Upload form-16',error_messages = {'required':"Please upload form16"},widget=forms.FileInput(attrs={'class':'form-control','placeholder':"upload Form16"}))
+    form16=forms.FileField(label='Upload form-16',validators=[FileExtensionValidator(allowed_extensions=['pdf'])],error_messages = {'required':"Please upload form16"},widget=forms.FileInput(attrs={'class':'form-control pcd','placeholder':"upload Form16"}))
     def __init__(self, *args, **kwargs):
         super(itroform, self).__init__(*args, **kwargs)
         self.fields['fathername'].label = ""
