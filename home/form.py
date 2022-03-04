@@ -16,10 +16,19 @@ class account_creation_form(UserCreationForm):
 
         self.fields['email'].required = True
 
-class login_form(AuthenticationForm):
-    username=forms.CharField(label="Username",widget=forms.TextInput(attrs={'class':'form-control'}))
-    password=forms.CharField(label="Password",widget=forms.PasswordInput(attrs={'class':'form-control'}))
+class loginform(forms.Form):
+    username=forms.CharField(required=True,error_messages = {'required':"Please enter  username"}, 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':" username"}))
+    password=forms.CharField(error_messages = {'required':"Please enter password"}, 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"password"}))
 
+class signupform(forms.Form):
+    username=forms.CharField(required=True,error_messages = {'required':"Please enter  username"}, 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':" username"}))
+    password=forms.CharField(error_messages = {'required':"Please enter password"}, 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Password"}))
+    email=forms.CharField(required=True,error_messages = {'required':"Please enter email"}, 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"email"}))
 
 class password_form(PasswordChangeForm):
     old_password=None
@@ -72,3 +81,47 @@ class itrform(forms.ModelForm):
         self.fields['bankaccount'].label = ""
         self.fields['ifsccode'].label = ""
         self.fields['form16'].label = "upload form-16"
+        
+
+from django.core.validators import MaxLengthValidator,MinLengthValidator
+
+validators=[MaxLengthValidator(5)]
+
+
+def checkaadhar(value):
+    if value[0]!='0':
+        raise forms.ValidationError("enter correct aadhar")
+
+
+
+class itroform(forms.Form):
+    fathername=forms.CharField(error_messages = {'required':"Please enter father name"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Father's Name"}))
+    dob=forms.DateField(error_messages = {'required':"Please enter dob"}, 
+    widget=forms.DateTimeInput(attrs={'class':'form-control','placeholder':"Date Of Birth",'type':'date'}))
+    state=forms.CharField(error_messages = {'required':"Please enter state"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"State name"}))
+    city=forms.CharField(error_messages = {'required':"Please enter city"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"City name"}))
+    pan=forms.CharField(error_messages = {'required':"Please enter pan no"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"PAN no"}))
+    bankname=forms.CharField(error_messages = {'required':"Please enter bank name"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Bank name"}))
+    ifsc=forms.CharField(error_messages = {'required':"Please enter bankIFSC code"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Bank IFSC code"}))
+    account=forms.CharField(error_messages = {'required':"Please enter account no"},validators=[MaxLengthValidator(50)], 
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Bank Account No"}))
+    aadhar=forms.CharField(error_messages = {'required':"Please enter aadhar no"},validators=[checkaadhar] ,
+    widget=forms.TextInput(attrs={'class':'form-control','placeholder':"Aadhar no"}))
+    form16=forms.FileField(label='Upload form-16',error_messages = {'required':"Please upload form16"},widget=forms.FileInput(attrs={'class':'form-control','placeholder':"upload Form16"}))
+    def __init__(self, *args, **kwargs):
+        super(itroform, self).__init__(*args, **kwargs)
+        self.fields['fathername'].label = ""
+        self.fields['dob'].label = ""
+        self.fields['state'].label = ""
+        self.fields['city'].label = ""
+        self.fields['pan'].label = ""
+        self.fields['aadhar'].label = ""
+        self.fields['bankname'].label = ""
+        self.fields['account'].label = ""
+        self.fields['ifsc'].label = ""

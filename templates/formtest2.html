@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="suman">
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <title>File Returns</title>
+    <link rel="icon" href="{% static 'logo.png' %}">
+    <style>
+        .pox{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="container-fluid justify-content">
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h2 class="pox kk lk">Please fill this form correctly</h2>
+<form method = "POST" novalidate enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form_non_field_errors }}
+    {%for i in form%}
+    {{i.label}}
+    <p class="lps">{{ i }}</p>
+    {{i.errors}}
+    {%endfor%}
+    
+    <input type = "submit" value = "Submit" class="btn btn-outline-success tps">
+</form>
+</div>
+</div>
+{% endblock content %}
+</body>
+</html>

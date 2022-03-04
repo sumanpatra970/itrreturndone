@@ -13,7 +13,7 @@
     <title>Order confirmation</title>
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'payment.css' %}">
-    <link rel="icon" href="{% static 'logo.png' %}">
+    <link rel="icon" href="{% static 'logo5.png' %}">
     <style>
         .navspace{
             margin:10px 20px 20px 20px;
@@ -176,6 +176,9 @@
         button:hover {
             background: #82b534;
           }
+          razorpay-payment-button{
+            background: blue
+          }
         @media (min-width: 568px) {
         .account-details >div, .personal-details >div {
             width: 70%;
@@ -207,7 +210,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand space" href="/"><img src="{% static 'logo.png'%}" alt="Girl in a jacket" width="100px" height="60px"> </a>
+        <a class="navbar-brand space" href="/"><img src="{% static 'logo5.png'%}" alt="Girl in a jacket" width="100px" height="60px"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -316,5 +319,10 @@
         <!-- Copyright -->
       
       </footer>
+      <script>
+        window.onload = function(){
+          document.getElementsByClassName('razorpay-payment-button')
+        }
+      </script>
   </body>
 </html>

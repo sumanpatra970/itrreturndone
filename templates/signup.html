@@ -17,14 +17,20 @@
             <div class="col-sm-5"></div>
             <div class="col-sm-4 lk">
                 <h2 class="lk kk">Registration</h2>
-                <p class="lk kk">Already a user? <a href="/"><span class="lk">Sign in here</span></a></p>
-                <form class="form-group lk" action="signup" method="POST">
+                <p class="lk kk">Already a user?<a href="/"><span class="lk">Sign in here</span></a></p>
+                <ul class="messages cf lk">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                <form method = "POST" novalidate class="form-group lk">
                     {% csrf_token %}
-                    {%for i in fm%}
-                    <h5 class="skp">{{ i.label }}</h5>
-                    <h5 class="skp">{{ i }}{{i.error_messages}}</h5>
+                    {{ form_non_field_errors }}
+                    {%for i in form%}
+                    <p class="skp">{{ i }}</p>
+                    <p>{{i.errors}}</p>
                     {%endfor%}
-                    <button type="submit" class="btn btn-outline-success">submit</button>
+                    <input type = "submit" value = "Submit" class="btn btn-outline-success">
                 </form>
             </div>
         </div>

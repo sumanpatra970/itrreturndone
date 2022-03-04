@@ -25,12 +25,14 @@ urlpatterns = [
     path('signup',views.signup),
     path('account',views.account),
     path('home',views.itrhome),
-    path('itrdetails',views.itrdetails),
+    path('itrdetails',views.formtesting2),
     path('itrsubmit',views.itrsubmit),
     path('paymentstart',views.payment),
     path('payment_status',views.payment_status),
     path('invoice',views.invoice),
-    path('testing',views.testing)
+    path('testing',views.testing),
+    path('test',views.formtesting),
+    path('test2',views.formtesting2)
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

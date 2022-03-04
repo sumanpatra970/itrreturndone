@@ -1,42 +1,57 @@
 from django.shortcuts import render
 from django.contrib import auth
 from django.http import HttpResponseRedirect,HttpResponse
-from .form import account_creation_form
-from .form import login_form,password_form,user_change_form,itrform
+
+from home.models import itrrequest
+from .form import account_creation_form,loginform, signupform
+from .form import password_form,user_change_form,itrform
 from django.http import FileResponse
 # Create your views here.
+from django.contrib import messages
 def home(request):
-    if request.method=='POST':
-        user_fm=login_form(data=request.POST)
-        if user_fm.is_valid():
-            uname=user_fm.cleaned_data['username']
-            upass=user_fm.cleaned_data['password']
+    context = {}
+    form = loginform(request.POST or None)
+    context['form'] = form
+    if request.POST:
+        if form.is_valid():
+            uname=form.cleaned_data['username']
+            upass=form.cleaned_data['password']
             user=auth.forms.authenticate(username=uname,password=upass)
             if user is not None:
                 auth.login(request,user)
+                messages.success(request,'Your login is successful')
                 return HttpResponseRedirect('home')
             else:
-                user_fm=login_form()
-                return HttpResponse("something went wrong")
-        else:
-                user_fm=login_form()
-                return HttpResponse("something went")
-    else:
-        user_fm=login_form()
-        return render(request,'home.html',{'fm':user_fm})
+                messages.success(request,'username or password is invalid')
+                return render(request, "home.html", context)
+
+            print(temp)
+    return render(request, "home.html", context)
+
     
 def signup(request):
-    if request.method=="POST":
-        fm=account_creation_form(request.POST)
-        if fm.is_valid():
-            fm.save()
-            return render(request,'account.html')
+    context = {}
+    form = signupform(request.POST or None)
+    context['form'] = form
+    if request.POST:
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            email=  form.cleaned_data.get("email")
+            password= form.cleaned_data.get("password")
+            print(username,password,email)
+            try:
+                user = User.objects.create_user(username=username,
+                                    email=email,
+                                    password=password)
+                user.save()
+                messages.success(request,'Your account is successfully created')
+                return render(request,'account.html')
+            except:
+                messages.success(request,'username is not unique')
+                return render(request, "signup.html", context)
         else:
-            fm=account_creation_form()
-            return render(request,'ok.html',{'fm':fm})
-    else:
-        fm=account_creation_form()
-        return render(request,'signup.html',{'fm':fm})
+            return render(request, "signup.html", context)
+    return render(request, "signup.html", context)
 
 def account(request):
     if request.user.is_authenticated:
@@ -50,7 +65,7 @@ def itrhome(request):
 
 def itrdetails(request):
     if request.method=="POST":
-        fm=itrform(request.POST or None, request.FILES or None)
+        fm=itroform(request.POST or None, request.FILES or None)
         if fm.is_valid():
             fm.save()
             print("good")
@@ -116,3 +131,48 @@ def invoice(request):
 
 def testing(request):
     return render(request,'index.html')
+from .form import itroform
+def formtesting(request):
+    context = {}
+    form = signupform(request.POST or None)
+    context['form'] = form
+    if request.POST:
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            email=  form.cleaned_data.get("email")
+            password= form.cleaned_data.get("password")
+            print(username,password,email)
+            user = User.objects.create_user(username=username,
+                                 email=email,
+                                 password=password)
+            user.save()
+    return render(request, "formtest.html", context)
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+
+def handle_uploaded_file(f):  
+    with open('media/'+f.name, 'wb+') as destination:  
+        for chunk in f.chunks():  
+            destination.write(chunk)  
+
+def formtesting2(request):
+    context = {}
+    form = itroform(request.POST or None,request.FILES or None)
+    context['form'] = form
+    if request.POST:
+        if form.is_valid():
+            fathername = form.cleaned_data.get("fathername")
+            dob= form.cleaned_data.get("dob")
+            state = form.cleaned_data.get("state")
+            city = form.cleaned_data.get("city")
+            bank = form.cleaned_data.get("bankname")
+            ifsc = form.cleaned_data.get("ifsc")
+            pan = form.cleaned_data.get("pan")
+            account = form.cleaned_data.get("account")
+            aadhar = form.cleaned_data.get("aadhar")
+            user=itrrequest.objects.create(FatherName=fathername,DateOfBirth=dob,
+            state=state,city=city,pan=pan,aadhar=aadhar,bankname=bank,
+            bankaccount=account,ifsccode=ifsc,form16=request.FILES['form16'])
+            user.save()
+            return HttpResponseRedirect("paymentstart")
+    return render(request, "formtest2.html", context)
+

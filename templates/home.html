@@ -68,6 +68,14 @@
             font-size:18px;
             font-weight:bold;
           }
+          .errorlist{
+            color:red;
+            list-style:none;   
+        }
+        .cf{
+            color:red;
+            font-size:16px;
+        }
       @media only screen and (max-width: 600px) {
             .lk{
               margin:10px 10px 10px 10px;
@@ -81,10 +89,10 @@
         }
     </style>
     <title>File Returns</title>
-    <link rel="icon" href="{% static 'logo3.png' %}">
+    <link rel="icon" href="{% static 'logo8.png' %}">
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand space" href="/"><img src="{% static 'logo3.png'%}" alt="Girl in a jacket" width="100px" height="60px"> </a>
+        <a class="navbar-brand space" href="/"><img src="{% static 'logo5.png'%}" alt="Girl in a jacket" width="100px" height="100px"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -99,15 +107,24 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-5"></div>
             <div class="col-sm-4 lk"><br>
+               
                 <h2 class="lk kk">Sign in</h2>
                 <p class="lk kk">New to FileReturns ?<a href="signup"><span class="kk">Creat an account</span></a></p>
-                <form class="form-group lk" action="/" method="POST">
+                {% if messages %}
+<ul class="messages cf lk">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+                <form method = "POST" novalidate class="form-group lk">
                     {% csrf_token %}
-                    {%for i in fm%}
-                    <h5 class="skp">{{ i.label }}</h5>
-                    <h5 class="skp">{{ i }}{{i.errors|striptags}}</h5>
+                    {{ form_non_field_errors }}
+                    {%for i in form%}
+                    <p class="skp">{{ i }}</p>
+                    <p>{{i.errors}}</p>
                     {%endfor%}
-                    <button type="submit" class="btn btn-outline-success cox">submit</button>
+                    <input type = "submit" value = "Submit" class="btn btn-outline-success">
                 </form>
             </div>
         </div>
