@@ -2,41 +2,21 @@
 {%load static%}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="suman">
-    <meta name="keywords" content="consult counsel guidance teaching help mentor tution teacher expert dancer music teacher professional doctor writter painter  healthworker counselling best in india consulting session video lecture video session startup">
-    <meta name="description" content="Consult & Counsel is an online consulting service where people seeking guidance in any field is counselled by a Mentor who is expertised in the same area">
-    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'basic.css' %}">
-    <link rel="icon" href="{% static 'COUNC.jpeg' %}">
-    <style>
-        .errorlist{
-            color:red;
-            list-style:none;
-            margin:0px;    
-            padding:0px;
-        }
-        .kl{
-        margin:0px;
-        }
-    </style>
-    <title>Successful</title>
 </head>
 <body>
-<div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-<form method = "POST" novalidate>
-    {% csrf_token %}
-    {{ form_non_field_errors }}
-    {%for i in form%}
-    <p>{{ i }}</p>
-    <p class="kl">{{i.errors}}</p>
-    {%endfor%}
-    <input type = "submit" value = "Submit">
-</form>
-</div>
-</div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form method = "POST" novalidate>
+            {% csrf_token %}
+            {{ form_non_field_errors }}
+            {%for i in form%}
+            <p>{{ i }}</p>
+            <p class="kl">{{i.errors}}</p>
+            {%endfor%}
+            <input type = "submit" value = "Submit">
+        </form>
+        </div>
+    </div>
 </body>
 </html>

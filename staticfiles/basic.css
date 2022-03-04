@@ -1,0 +1,90 @@
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+img{
+    border-radius:5px;
+}
+.navspace{
+    margin:10px 20px 20px 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.navspace-form{
+    padding-right:30px;
+}
+.navextra-space{
+    margin-top:10px;
+    margin-left:-15px;
+}  
+.koi {
+    margin-left:600px;
+}
+.pox{
+    text-align:center;
+}
+.pol{
+    width:100px;
+}   
+.ll{
+    background:none;
+    height:550px;
+    width:400px;
+    margin-left:100px;
+}
+.lk{
+    margin:10px 10px 10px 10px;
+}
+.pk{
+     margin-left:20px;
+}
+.set{
+    width:100px;
+}
+.cart-img{
+    width:80px;
+    height:60px;
+}
+.account-img{
+    width:60x;
+    height:40px;
+}
+.skp{
+    margin-bottom:10px;
+}
+.kk{
+    font-size:18px;
+    font-weight:bold;
+}
+.op{
+    margin-bottom:5px;
+    padding-bottom:5px;
+}
+.msg{
+    color:green;
+    font-size:20px;
+    font-weight:bold;
+}
+.errorlist{
+    color:red;
+    list-style:none;   
+}
+.cf{
+    color:red;
+    font-size:16px;
+}
+.lps{
+    margin-bottom:8px;
+}
+.tps{
+    position:center;
+}
+@media only screen and (max-width: 600px) {
+    .lk{
+      margin:10px 10px 10px 10px;
+    }
+    .kk{
+      font-size:18px;
+    }
+} 

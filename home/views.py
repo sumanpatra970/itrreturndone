@@ -1,13 +1,25 @@
 from django.shortcuts import render
+
 from django.contrib import auth
+
 from django.http import HttpResponseRedirect,HttpResponse
 
 from home.models import itrrequest
-from .form import account_creation_form,loginform, signupform
-from .form import password_form,user_change_form,itrform
+
+from .form import loginform, signupform
+
+from .form import user_change_form,itrform,itroform
+
 from django.http import FileResponse
-# Create your views here.
+
 from django.contrib import messages
+
+import razorpay
+
+from django.contrib.auth.models import User
+
+from fpdf import FPDF
+
 def home(request):
     context = {}
     form = loginform(request.POST or None)
@@ -24,11 +36,8 @@ def home(request):
             else:
                 messages.success(request,'username or password is invalid')
                 return render(request, "home.html", context)
-
-            print(temp)
     return render(request, "home.html", context)
 
-    
 def signup(request):
     context = {}
     form = signupform(request.POST or None)
@@ -40,9 +49,7 @@ def signup(request):
             password= form.cleaned_data.get("password")
             print(username,password,email)
             try:
-                user = User.objects.create_user(username=username,
-                                    email=email,
-                                    password=password)
+                user = User.objects.create_user(username=username,email=email,password=password)
                 user.save()
                 messages.success(request,'Your account is successfully created')
                 return render(request,'account.html')
@@ -76,8 +83,6 @@ def itrdetails(request):
         user_fm=itrform()
         return render(request,'itrform.html',{'fm':user_fm})
 
-import razorpay
-from django.contrib.auth.models import User
 def itrsubmit(request):
      return HttpResponseRedirect('paymentstart')
 
@@ -113,7 +118,7 @@ def payment_status(request):
     except:
         return render(request, 'order_summary.html', {'status': 'Payment Faliure!!!'})
 
-from fpdf import FPDF
+
 def invoice(request):
     pdf = FPDF()   
     pdf.add_page()
@@ -131,7 +136,7 @@ def invoice(request):
 
 def testing(request):
     return render(request,'index.html')
-from .form import itroform
+
 def formtesting(request):
     context = {}
     form = signupform(request.POST or None)
@@ -147,12 +152,6 @@ def formtesting(request):
                                  password=password)
             user.save()
     return render(request, "formtest.html", context)
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-
-def handle_uploaded_file(f):  
-    with open('media/'+f.name, 'wb+') as destination:  
-        for chunk in f.chunks():  
-            destination.write(chunk)  
 
 def formtesting2(request):
     context = {}

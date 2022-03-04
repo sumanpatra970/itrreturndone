@@ -7,116 +7,32 @@
     <meta name="author" content="suman">
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'mostimp.css' %}">
     <link rel="stylesheet" href="https://www.pubik.in/static/basicLightbox.min.css">
-    <style>
-        .navspace{
-            margin:10px 20px 20px 20px;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        .navspace-form{
-            padding-right:30px;
-        }
-        .navextra-space{
-            margin-top:10px;
-            margin-left:-15px;
-        }  
-        .koi {
-            margin-left:600px;
-        }
-        img{
-          border-radius:5px;
-        }
-        body{
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-        }
-        .pox{
-            text-align:center;
-        }
-        .pol{
-            width:100px;
-        }   
-        .ll{
-            background:none;
-            height:550px;
-            width:400px;
-            margin-left:100px;
-        }
-        .lk{
-            margin:10px 10px 10px 10px;
-        }
-        .pk{
-             margin-left:20px;
-        }
-        .set{
-            width:100px;
-        }
-        .cart-img{
-            width:80px;
-            height:60px;
-        }
-        .account-img{
-            width:60x;
-            height:40px;
-        }
-        .skp{
-            margin-bottom:10px;
-        }
-        .kk{
-            font-size:18px;
-            font-weight:bold;
-          }
-          .errorlist{
-            color:red;
-            list-style:none;   
-        }
-        .cf{
-            color:red;
-            font-size:16px;
-        }
-      @media only screen and (max-width: 600px) {
-            .lk{
-              margin:10px 10px 10px 10px;
-            }
-            .kk{
-              font-size:18px;
-            }
-            .cox{
-                text-align:center;
-            }
-        }
-    </style>
-    <title>File Returns</title>
     <link rel="icon" href="{% static 'logo8.png' %}">
+    <title>File Returns</title>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand space" href="/"><img src="{% static 'logo5.png'%}" alt="Girl in a jacket" width="100px" height="100px"> </a>
+        <a class="navbar-brand space" href="/">
+            <img src="{% static 'logo5.png'%}" alt="File return logo" width="100px" height="100px">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-
-        </ul>
-        </div>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-5"></div>
+            <div class="col-sm-6"></div>
             <div class="col-sm-4 lk"><br>
-               
                 <h2 class="lk kk">Sign in</h2>
                 <p class="lk kk">New to FileReturns ?<a href="signup"><span class="kk">Creat an account</span></a></p>
                 {% if messages %}
-<ul class="messages cf lk">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+                <ul class="messages cf lk">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
                 <form method = "POST" novalidate class="form-group lk">
                     {% csrf_token %}
                     {{ form_non_field_errors }}
@@ -130,168 +46,119 @@
         </div>
     </div>
     <div class="container-fluid">
-    <div class="columns">
-        <div class="column">
-            <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a href="./services/itr-filings.html">
-                    <div class="has-text-centered">
-                        <img src="./static/img1.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">Income Tax</strong>
-                    </h2>
-                </a>
+        <div class="columns">
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a href="./services/itr-filings.html">
+                        <div class="has-text-centered">
+                            <img src="./static/img1.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Income Tax</strong>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a href="./services/gst.html">
+                        <div class="has-text-centered">
+                            <img src="./static/img2.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">GST</strong>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a onclick="tds.show()">
+                        <div class="has-text-centered">
+                            <img src="./static/img3.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">TDS</strong>
+                        </h2>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="column">
-            <div
-                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a href="./services/gst.html">
-                    <div class="has-text-centered">
-                        <img src="./static/img2.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">GST</strong>
-                    </h2>
-                </a>
+        <div class="columns">
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a onclick="accounting.show()">
+                        <div class="has-text-centered">
+                            <img src="./static/img4.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Accounting</strong>
+                        </h2>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <div
-                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a onclick="tds.show()">
-                    <div class="has-text-centered">
-                        <img src="./static/img3.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">TDS</strong>
-                    </h2>
-                </a>
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a href="./services/company-incorporation.html">
+                        <div class="has-text-centered">
+                            <img src="./static/img5.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">StartUp Services</strong>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
+                    <a href="./services/wills.html">
+                        <div class="has-text-centered">
+                            <img src="./static/img6.svg" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Wills</strong>
+                        </h2>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="columns">
-        <div class="column">
-            <div
-                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a onclick="accounting.show()">
-                    <div class="has-text-centered">
-                        <img src="./static/img4.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">Accounting</strong>
-                    </h2>
-                </a>
+    <footer class="page-footer font-small indigo">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mx-auto"><br>
+                    <h4>File returns intuitive e filling application ensures filling Accurate tax returns. TaxBuddy leverages technology to bring expert advice to taxpayers at reasonable cost.</h3>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-3 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#!">Article</a></li>
+                        <li><a href="#!">twitter</a></li>
+                        <li><a href="#!">facebook</a></li>
+                        <li><a href="#!">linkedin</a></li>
+                    </ul>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-3 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#!">Terms & Condition</a></li>
+                        <li><a href="#!">Privacy</a></li>
+                        <li><a href="#!">contact</a></li>
+                        <li><a href="#!">FAQ's</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="column">
-            <div
-                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a href="./services/company-incorporation.html">
-                    <div class="has-text-centered">
-                        <img src="./static/img5.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">StartUp Services</strong>
-                    </h2>
-                </a>
-            </div>
-        </div>
-        <div class="column">
-            <div
-                style="border-radius: 4px; background-color: #18253f;padding-top: 0.5rem;padding-bottom: 0.5rem;max-height: 350px;">
-                <a href="./services/wills.html">
-                    <div class="has-text-centered">
-                        <img src="./static/img6.svg" alt="" style="max-width: 250px;">
-                    </div>
-                    <h2 class="is-size-4 is-size-5-mobile has-text-centered"
-                        style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
-                        <strong style="color: #fcfcfc;">Wills</strong>
-                    </h2>
-                </a>
-            </div>
-        </div>
-</div>
-</div>
-<footer class="page-footer font-small indigo">
-    <div class="container text-center text-md-left">
-      <div class="row">
-        <div class="col-md-6 mx-auto"><br>
-          <h4>File returns intuitive e filling application ensures filling Accurate tax returns. TaxBuddy leverages technology to bring expert advice to taxpayers at reasonable cost.</h3>
-          
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Article</a>
-            </li>
-            <li>
-              <a href="#!">twitter</a>
-            </li>
-            <li>
-              <a href="#!">facebook</a>
-            </li>
-            <li>
-              <a href="#!">linkedin</a>
-            </li>
-          </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Terms & Condition</a>
-            </li>
-            <li>
-              <a href="#!">Privacy</a>
-            </li>
-            <li>
-              <a href="#!">contact</a>
-            </li>
-            <li>
-              <a href="#!">FAQ's</a>
-            </li>
-          </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
-      </div>
-      <!-- Grid row -->
-  
-    </div>
-    <!-- Footer Links -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:Filereturns.com
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:Filereturns.com</div>
+    </footer>
 </body>
 </html>
         

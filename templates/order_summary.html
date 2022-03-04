@@ -3,12 +3,6 @@
 {% load static%}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="suman">
-    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
-    <link rel="icon" href="{% static 'logo.png' %}">
-    <title>TRANSCATION</title>
 </head>
 <body>
     {% block content %}
@@ -16,8 +10,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4 lk">
-                <h4>Thank You for your purchase, 
-                following are your payment details</h4><br>
+                <h4>Thank You for your purchase, following are your payment details</h4><br>
                 <h4 class="pox">Payment Status : {{ status }}</h4><br>
                 <h5 class="pox">Transcation_id: {{x}}</h5><br>
                 <h5 class="pox">Order_id: {{y}}</h5><br>

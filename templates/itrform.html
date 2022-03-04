@@ -3,17 +3,6 @@
 {%load static%}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="suman">
-    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
-    <title>File Returns</title>
-    <link rel="icon" href="{% static 'logo.png' %}">
-    <style>
-        .pox{
-            text-align:center;
-        }
-    </style>
 </head>
 <body>
     {% block content %}
@@ -23,12 +12,12 @@
             <div class="col-sm-4 pox">
                 Please fill this form correctly
                 {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <form class="form-group lk" action="itrdetails" method="POST" enctype="multipart/form-data" novalidate>
                     {% csrf_token %}
                     {{fm_non_field_errors}}
